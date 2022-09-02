@@ -25,7 +25,7 @@ class OrderHandler:
         
         self.meal_handler = handler
 
-    def validate__requirements(self):
+    def validate__requirements(self) -> bool:
         errors = []
 
         # Each meal requires exactly one main and at least one side
@@ -60,7 +60,9 @@ class OrderHandler:
                 error_output += ", " + e.lower()
             
             print(error_output)
-            exit(1)
+            return False
+        
+        return True
 
     def print_order(self):
         print(self.meal_handler)
