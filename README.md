@@ -19,3 +19,18 @@ python3 -m virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## Usage 
+
+For common use, run the following in the command line. The meal name and item order can be changed,
+but should follow the same format.
+
+```sh
+python3 main.py Breakfast 1,2,3
+```
+
+To run the test suite, run the following commands.
+
+```sh 
+pytest
+```
