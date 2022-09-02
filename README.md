@@ -1,7 +1,12 @@
 # Meal Ordering Application
 
 This is a command-line based Python application which implements the meal ordering
-specification for Evive. 
+specification for Evive. The `main.py` file is the main driver for the program. The
+`order_handler.py` file contains the main driver class which defines the procedure
+for handling an order input. The `breakfast.py`, `lunch.py`, and `dinner.py` files
+contain the classes which extend the class found in `meal_base.py` to implement 
+rules and food items specific to each meal. They have a common interface for the order
+handler to work with.
 
 ## Installation
 
@@ -29,7 +34,7 @@ but should follow the same format.
 python3 main.py Breakfast 1,2,3
 ```
 
-To run the test suite, run the following commands.
+To run the test suite, run the following commands. The tests are located in `test_order_handler.py`.
 
 ```sh 
 pytest
