@@ -9,11 +9,11 @@ class OrderHandler:
     def __init__(self, meal: str, items: str):
         self.meal_name = meal
         self.items_ordered = items.split(',')
-
-    def validate__requirements(self):
         if self.meal_name == "Breakfast":
             handler = Breakfast(self.items_ordered)
+            self.meal_handler = handler
 
+    def validate__requirements(self):
         # Each meal requires exactly one main and at least one side
         main_count = 0
         side_count = 0
@@ -30,14 +30,12 @@ class OrderHandler:
             self.handle_error("Side is missing")
         
         if main_count > 1:
-            self.handle_error(handler.menu[0] + " cannot be ordered more than once")
+            self.handle_error(self.meal_handler.menu[0] + " cannot be ordered more than once")
         
-        handler.validate()
+        self.meal_handler.validate()
 
     def print_order(self):
-        if self.meal_name == "Breakfast":
-            handler = Breakfast(self.items_ordered)
-        print(handler)
+        print(self.meal_handler)
 
     def handle_error(self, message: str):
         print("Unable to process: " + message)
